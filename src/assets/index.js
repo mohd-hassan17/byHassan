@@ -35,9 +35,16 @@ import giphy from "./giphy.jpg";
 import Linkedin from "./Linkedin.png";
 import favicon from "./favicon.png";
 import gsap from "./gsap.png";
-
+import cyber from "./cyber.png";
+import cyber1 from "./cyber1.png";
+import cyber3 from "./cyber3.png";
+import cyber4 from "./cyber3.png";
 
 export {
+  cyber3,
+  cyber4,
+  cyber,
+  cyber1,
   gsap,
   favicon,
   Linkedin,

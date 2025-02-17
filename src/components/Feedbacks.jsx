@@ -1,147 +1,140 @@
-import React from "react";
-import { div } from "framer-motion/client";
-import { github } from "../assets";
-import { Linkedin } from "../assets";
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { useEffect } from "react";
+import { Canvas, useFrame } from '@react-three/fiber'
+import { OrbitControls, Grid } from '@react-three/drei'
+import { useEffect, useRef, useState } from 'react'
+import * as THREE from 'three'
 
-import { styles } from "../styles";
-import { SectionWrapper } from "../hoc";
+function SpinningLogo() {
+  const groupRef = useRef(null)
 
+  useFrame((state, delta) => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y += delta * 0.5
+    }
+  })
 
-const Feedbacks = () => {
-
-    useEffect(() => {
-        const handleWheel = (event) => {
-          if (event.deltaY > 0) {
-            gsap.to(".marque", {
-              transform: "translateX(-200%)",
-              duration: 3.5,
-              repeat: -1,
-              ease: "none",
-            });
-            gsap.to(".marque .img1", {
-              rotate: 0,
-            });
-          } else {
-            gsap.to(".marque", {
-              transform: "translateX(0%)",
-              duration: 3.5,
-              repeat: -1,
-              ease: "none",
-            });
-            gsap.to(".marque .img1", {
-              rotate: 180,
-            });
-          }
-        };
-    
-        // Attach the wheel event listener
-        window.addEventListener("wheel", handleWheel);
-    
-        // Cleanup on component unmount
-        return () => {
-          window.removeEventListener("wheel", handleWheel);
-        };
-      }, []); // Empty dependency array ensures this effect runs once on mount
-    
-
-    return(
-        <div id="move">
-          
-        <div className="marque">
-            <a href="https://www.linkedin.com/in/mohd-hassan17/" target="_blank">
-           <h1>Checkout LinkedIn Profile</h1>
-           <img src={Linkedin} />
-           </a>
-        <img className="img1" src="https://www.brandium.nl/wp-content/uploads/2023/07/arrow-br.svg" />
-     </div>
-
-     <div className="marque">
-        <a href="https://github.com/mohd-hassan17/" target="_blank">
-        <h1>Checkout Github Acount</h1>
-        <img src={github} />
-        </a>
-        <img className="img1" src="https://www.brandium.nl/wp-content/uploads/2023/07/arrow-br.svg" />
-     </div>
-
-     <div className="marque">
-            <a href="https://www.linkedin.com/in/mohd-hassan17/" target="_blank">
-           <h1>Checkout LinkedIn Profile</h1>
-           <img src={Linkedin} />
-           </a>
-        <img className="img1" src="https://www.brandium.nl/wp-content/uploads/2023/07/arrow-br.svg" />
-     </div>
-     <div className="marque">
-        <a href="https://github.com/mohd-hassan17/" target="_blank">
-        <h1>Checkout Github Acount</h1>
-        <img src={github} />
-        </a>
-        <img className="img1" src="https://www.brandium.nl/wp-content/uploads/2023/07/arrow-br.svg" />
-     </div>
-    </div>
-    )
+  return (
+    <group ref={groupRef}>
+      <mesh position={[0, 0, 0]}>
+        <boxGeometry args={[1, 1, 1]} />
+        <meshStandardMaterial color="#ffffff" />
+      </mesh>
+      <mesh position={[0.5, 0.5, 0.5]}>
+        <boxGeometry args={[0.5, 0.5, 0.5]} />
+        <meshStandardMaterial color="#cccccc" />
+      </mesh>
+      <mesh position={[-0.5, -0.5, -0.5]}>
+        <boxGeometry args={[0.5, 0.5, 0.5]} />
+        <meshStandardMaterial color="#999999" />
+      </mesh>
+    </group>
+  )
 }
 
-export default SectionWrapper(Feedbacks, "");
+function AnimatedBox({ initialPosition }) {
+  const meshRef = useRef(null)
+  const [targetPosition, setTargetPosition] = useState(new THREE.Vector3(...initialPosition))
+  const currentPosition = useRef(new THREE.Vector3(...initialPosition))
 
-// ({
+  const getAdjacentIntersection = (current) => {
+    const directions = [
+      [1, 0],
+      [-1, 0],
+      [0, 1],
+      [0, -1],
+    ]
+    const randomDirection = directions[Math.floor(Math.random() * directions.length)]
+    return new THREE.Vector3(
+      current.x + randomDirection[0] * 3,
+      0.5,
+      current.z + randomDirection[1] * 3
+    )
+  }
 
-//   index,
-//   testimonial,
-//   name,
-//   designation,
-//   company,
-//   image,
-// }) => (
-//   <motion.div
-//     variants={fadeIn("", "spring", index * 0.5, 0.75)}
-//     className='bg-black-200 p-10 rounded-3xl xs:w-[320px] w-full'
-//   >
-//     <p className='text-white font-black text-[48px]'>"</p>
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const newPosition = getAdjacentIntersection(currentPosition.current)
+      newPosition.x = Math.max(-15, Math.min(15, newPosition.x))
+      newPosition.z = Math.max(-15, Math.min(15, newPosition.z))
+      setTargetPosition(newPosition)
+    }, 1000)
 
-//     <div className='mt-1'>
-//       <p className='text-white tracking-wider text-[18px]'>{testimonial}</p>
+    return () => clearInterval(interval)
+  }, [])
 
-//       <div className='mt-7 flex justify-between items-center gap-1'>
-//         <div className='flex-1 flex flex-col'>
-//           <p className='text-white font-medium text-[16px]'>
-//             <span className='blue-text-gradient'>@</span> {name}
-//           </p>
-//           <p className='mt-1 text-secondary text-[12px]'>
-//             {designation} of {company}
-//           </p>
-//         </div>
+  useFrame((state, delta) => {
+    if (meshRef.current) {
+      currentPosition.current.lerp(targetPosition, 0.1)
+      meshRef.current.position.copy(currentPosition.current)
+    }
+  })
 
-//         <img
-//           src={image}
-//           alt={`feedback_by-${name}`}
-//           className='w-10 h-10 rounded-full object-cover'
-//         />
-//       </div>
-//     </div>
-//   </motion.div>
-// );
+  return (
+    <mesh ref={meshRef} position={initialPosition}>
+      <boxGeometry args={[1, 1, 1]} />
+      <meshStandardMaterial color="#ffffff" opacity={0.9} transparent />
+      <lineSegments>
+        <edgesGeometry attach="geometry" args={[new THREE.BoxGeometry(1, 1, 1)]} />
+        <lineBasicMaterial attach="material" color="#000000" linewidth={2} />
+      </lineSegments>
+    </mesh>
+  )
+}
 
-// const Feedbacks = () => {
-//   return (
-//     <div className={`mt-12 bg-black-100 rounded-[20px]`}>
-//       <div
-//         className={`bg-tertiary rounded-2xl ${styles.padding} min-h-[300px]`}
-//       >
-//         <motion.div variants={textVariant()}>
-//           <p className={styles.sectionSubText}>What others say</p>
-//           <h2 className={styles.sectionHeadText}>Testimonials.</h2>
-//         </motion.div>
-//       </div>
-//       <div className={`-mt-20 pb-14 ${styles.paddingX} flex flex-wrap gap-7`}>
-//         {testimonials.map((testimonial, index) => (
-//           <FeedbackCard key={testimonial.name} index={index} {...testimonial} />
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
+function Scene() {
+  const initialPositions = [
+    [-9, 0.5, -9],
+    [-3, 0.5, -3],
+    [0, 0.5, 0],
+    [3, 0.5, 3],
+    [9, 0.5, 9],
+    [-6, 0.5, 6],
+    [6, 0.5, -6],
+    [-12, 0.5, 0],
+    [12, 0.5, 0],
+    [0, 0.5, 12],
+  ]
 
-// export default SectionWrapper(Feedbacks, "");
+  return (
+    <>
+      <ambientLight intensity={0.5} />
+      <pointLight position={[10, 10, 10]} />
+      <Grid
+        renderOrder={-1}
+        position={[0, 0, 0]}
+        infiniteGrid
+        cellSize={1}
+        cellThickness={0.5}
+        sectionSize={3}
+        sectionThickness={1}
+        sectionColor={[0.5, 0.5, 0.5]}
+        fadeDistance={50}
+      />
+      {initialPositions.map((position, index) => (
+        <AnimatedBox key={index} initialPosition={position} />
+      ))}
+    </>
+  )
+}
+
+export default function Feedbacks() {
+  return (
+    <div className="relative w-full h-screen bg-black text-white overflow-hidden">
+      
+      <div className="absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-10">
+        <h1 className="text-6xl font-bold mb-8 max-w-4xl mx-auto">AI-driven Solutions for Secure File Handling</h1>
+        <h2 className="text-xl mb-10">Verify File Authenticity: Detect Errors and Modifications Instantly        </h2>
+        <button className="bg-white text-black font-bold py-3 px-6 rounded-md hover:bg-gray-200 transition duration-300">
+          Get Started
+        </button>
+      </div>
+      <Canvas
+  shadows
+  camera={{ position: [30, 30, 30], fov: 40 }}
+  className="fixed top-0 left-0 w-full h-full"
+  
+>
+<Scene />
+</Canvas>
+    </div>
+  )
+} 

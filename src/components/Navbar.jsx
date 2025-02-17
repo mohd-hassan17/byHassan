@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
-import { logo,favicon, menu, close } from "../assets";
+import { cyber4,favicon, menu, close } from "../assets";
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
@@ -40,6 +40,15 @@ const Navbar = () => {
     })
   });
 
+  // useGSAP(() => {
+  //   gsap.to(".btn",{
+  //     y:-40,
+  //     duration:1,
+  //     delay:1,
+  //     opacity:0,
+  //   })
+  // });
+
  
 
   return (
@@ -47,7 +56,7 @@ const Navbar = () => {
       className={`${
         styles.paddingX
       } w-full flex items-center py-5 fixed top-0 z-20 ${
-        scrolled ? "bg-primary" : "bg-transparent"
+        scrolled ? "bg-transparent" : "bg-transparent"
       }`}
     >
       <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
@@ -59,9 +68,10 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={favicon} alt='logo' className='w-9 h-9  object-contain' />
+           <img src={cyber4} alt='logo' className='w-9 h-9  bg object-contain has' />
           <p className='text-white text-[24px] font-semibold cursor-pointer flex has '>
-            Mohd &nbsp;Hassan
+         
+            Take &nbsp;Control
           </p>
         </Link>
 
@@ -77,6 +87,9 @@ const Navbar = () => {
               <a className="a" href={`#${nav.id}`}>{nav.title}</a>
             </li>
           ))}
+          <button className="bg-blue-600 text-white font-bold py-3 px-6 rounded-md hover:bg-blue-700 transition duration-300 btn ">
+  Login
+</button>
         </ul>
 
         <div className='sm:hidden flex flex-1 justify-end items-center'>
@@ -107,7 +120,9 @@ const Navbar = () => {
                   <a className="a" href={`#${nav.id}`}>{nav.title}</a>
                 </li>
               ))}
+              
             </ul>
+            
           </div>
         </div>
       </div>

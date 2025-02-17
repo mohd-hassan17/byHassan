@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom"
-import { About, Contact, Experience, Hero, Navbar, Tech, Works, StarsCanvas,FollowCursor,Feedbacks } from "./components";
+// import { Hero, Navbar, } from "./components";
+import { Feedbacks,Contact,StarsCanvas, Navbar } from "./components";
+
 
 function App() {
  
@@ -10,19 +12,19 @@ function App() {
     <BrowserRouter>
    
      <div className='relative z-0 bg-primary'>
-     <FollowCursor />
+    
         <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
-          <Navbar />
-          <Hero />
+         <Navbar />
+          {/* <Hero />  */}
         </div>
-        <About />
-        <Experience />
-        <Tech />
-        <Works />
+         {/* <About /> */}
+        {/* <Experience /> */}
+        {/* <Tech /> */}
+        {/* <Works /> */}
         <Feedbacks />
         <div className='relative z-0'>
           <Contact />
-          <StarsCanvas />
+          <StarsCanvas /> 
         </div>
       </div>
       

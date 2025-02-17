@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* html, body {
+  overflow: hidden;
+} */
+
 * {
   margin: 0;
   padding: 0;
@@ -13,24 +17,24 @@
   color-scheme: dark;
 }
 
-.hash-span {
+/* .hash-span {
   margin-top: -100px;
   padding-bottom: 100px;
   display: block;
-}
+} */
 
 .black-gradient {
-  background: #000000; /* fallback for old browsers */
+  background: #000000; 
   background: -webkit-linear-gradient(
     to right,
     #434343,
     #000000
-  ); /* Chrome 10-25, Safari 5.1-6 */
+  ); 
   background: linear-gradient(
     to right,
     #434343,
     #000000
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  ); 
 }
 
 .violet-gradient {
@@ -50,17 +54,17 @@
 }
 
 .orange-text-gradient {
-  background: #f12711; /* fallback for old browsers */
+  background: #f12711; 
   background: -webkit-linear-gradient(
     to top,
     #f12711,
     #f5af19
-  ); /* Chrome 10-25, Safari 5.1-6 */
+  ); 
   background: linear-gradient(
     to top,
     #f12711,
     #f5af19
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -244,9 +248,9 @@
 ::selection{
   color: #e78bf3;
 }
-::-webkit-scrollbar {
-  display: none; /* Hide scrollbar in Chrome, Safari, and Edge */
-}
+/* ::-webkit-scrollbar {
+  display: none; 
+} */
 
 text-container {
   font-size: 3rem;
