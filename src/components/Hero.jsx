@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { useNavigate } from 'react-router-dom'
 import About from './About'
-import Works from './Works'
+// import Works from './Works'
 
 function SpinningLogo() {
   const groupRef = useRef(null)
@@ -135,7 +135,7 @@ export default function Hero() {
   const navigate = useNavigate()
   return (
     <>
-    <div className="relative w-full h-screen bg-black text-white overflow-hidden">
+    <div className="relative w-full h-screen bg-gradient-to-b from-black via-gray-900 to-gray-1000 text-white overflow-hidden">
       
       <div className="absolute top-[38%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-10">
         <h1 className="text-6xl font-semibold mb-8 max-w-4xl mx-auto txt">AI-driven Solutions for Secure File Handling</h1>
@@ -155,7 +155,7 @@ export default function Hero() {
 </Canvas>
     </div>
         <About />
-        <Works />
+      
         </>
   )
 } 

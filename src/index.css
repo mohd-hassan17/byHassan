@@ -302,10 +302,10 @@ text-container {
 .faq {
  
   border: 1px solid #4c7e99;
-  border-radius: 5px;
+  /* border-radius: 5px;
   margin-bottom: 10px;
   padding: 20px;
-  cursor: pointer;
+  cursor: pointer; */
 }
 
 .faq.open .faq-answer {
@@ -319,4 +319,32 @@ text-container {
 .faq-answer {
   display: none;
   padding-top: 10px;
+}
+
+/* bottom */
+
+.footer {
+  background-color: #f8f9fa;
+  padding: 20px 0;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer a {
+  color: #007bff;
+  text-decoration: none;
+  margin: 10px;
+  font-size: 18px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
 }

@@ -1,10 +1,11 @@
 import React from "react";
-import {  Hero, Navbar } from "./components";
+import {  Hero,  } from "./components";
 import Service from "./pages/Service";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AppLayout from "./layouts/Applayout";
 import FileIntegrity from "./pages/FileIntegrity";
 import Documentation from "./pages/Documentation";
+import Email from "./components/Email";
 
 
 const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/FileIntegrity",
         element: <FileIntegrity />,
+      },
+      {
+        path: "/Email",
+        element: < Email/>,
       },
     ],
   },

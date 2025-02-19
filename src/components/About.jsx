@@ -1,7 +1,7 @@
 import React from "react";
 import {Tilt} from "react-tilt";
 import { motion } from "framer-motion";
-
+import Works from "./Works";
 import { styles } from "../styles";
 import { services } from "../constants";
 import { SectionWrapper } from "../hoc";
@@ -13,7 +13,7 @@ const ServiceCard = ({ index, title, icon }) => (
     <motion.div
       variants={fadeIn("right", "spring", index * 0.5, 0.75)}
       // className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
-      className='text-secondary w-full bg-gradient-to-r from-gray-900 via-perpole-600 to-[#00c3ff] p-[1px] rounded-[20px] shadow-card'
+      className='text-secondary w-full bg-gradient-to-r from-gray-900 via-perpole-600 to-[#146179] p-[1px] rounded-[20px] shadow-card'
 
     >
       <div
@@ -41,7 +41,7 @@ const ServiceCard = ({ index, title, icon }) => (
 const About = () => {
   return (
    
-    <div className="bg-gradient-to-b from-black via-gray-900 to-purple-1000
+    <div className="bg-gradient-to-b from-black via-gray-700 to-gray-900
  max-w mx-auto relative z-0">
       <motion.div variants={textVariant()} className="" >
        
@@ -71,7 +71,9 @@ const About = () => {
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
       </div>
+      <Works />
       </div>
+
   );
 };
 

@@ -36,11 +36,11 @@ import cyber from "./cyber.png";
 
 import cyber4 from "./cyber4.png";
 import cyber5 from "./cyber5.png";
-
+import myimg from "./myimg.png";
 
 export {
   cyber5,
- 
+  myimg,
   cyber4,
   cyber,
   
