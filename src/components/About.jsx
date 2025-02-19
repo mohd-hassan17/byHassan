@@ -46,7 +46,7 @@ const About = () => {
       <motion.div variants={textVariant()} className="" >
        
         <p className={` text-secondary text-[21px] flex justify-evenly items-center pt-4  `}>What You Need To Know </p>
-        <h2 className={` text-secondary font-black md:text-[60px] sm:text-[20px] xs:text-[40px] text-[30px] font-semibold flex justify-evenly items-center`}>How does it work ?</h2>
+        <h2 className={` text-secondary  md:text-[60px] sm:text-[20px] xs:text-[40px] text-[30px] font-semibold flex justify-evenly items-center`}>How does it work ?</h2>
       </motion.div>
 
       {/* <motion.p

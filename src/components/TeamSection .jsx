@@ -3,23 +3,23 @@
 
 const teamMembers = [
     {
-      name: "John Doe",
+      name: "Mohd Hssan",
       role: "Frontend Developer",
-      image: "myimg",
+      image: myimg,
       linkedin: "https://linkedin.com/in/johndoe",
       github: "https://github.com/johndoe",
     },
     {
       name: "Jane Smith",
       role: "Backend Developer",
-      image: "https://via.placeholder.com/100",
+      image: myimg,
       linkedin: "https://linkedin.com/in/janesmith",
       github: "https://github.com/janesmith",
     },
     {
       name: "Alice Brown",
       role: "AI & Security Engineer",
-      image: "https://via.placeholder.com/100",
+      image: myimg,
       linkedin: "https://linkedin.com/in/alicebrown",
       github: "https://github.com/alicebrown",
     },
