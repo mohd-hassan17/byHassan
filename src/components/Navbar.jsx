@@ -37,13 +37,14 @@ const Navbar = () => {
       duration:0.8,
     delay:0.5,
     opacity:0,
-    // stagger:0.5
+    stagger:0.4
     })
   });
 
  
 
   return (
+    
     <nav
       className={`${
         styles.paddingX
@@ -134,6 +135,7 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
+    
   );
 };
 

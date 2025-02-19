@@ -3,6 +3,8 @@ import {  Grid } from '@react-three/drei'
 import { useEffect, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { useNavigate } from 'react-router-dom'
+import About from './About'
+import Works from './Works'
 
 function SpinningLogo() {
   const groupRef = useRef(null)
@@ -93,6 +95,17 @@ function Scene() {
     [-12, 0.5, 0],
     [12, 0.5, 0],
     [0, 0.5, 12],
+
+    [-7, 0.4, -7],
+    [7, 0.4, 7],
+    // [0, 0.5, 0],
+    // [3, 0.5, 3],
+    // [9, 0.5, 9],
+    // [-6, 0.5, 6],
+    // [6, 0.5, -6],
+    // [-12, 0.5, 0],
+    // [12, 0.5, 0],
+    // [0, 0.5, 12],
   ]
 
   return (
@@ -121,6 +134,7 @@ export default function Hero() {
 
   const navigate = useNavigate()
   return (
+    <>
     <div className="relative w-full h-screen bg-black text-white overflow-hidden">
       
       <div className="absolute top-[38%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-10">
@@ -133,12 +147,15 @@ export default function Hero() {
       </div>
       <Canvas
   shadows
-  camera={{ position: [30, 30, 30], fov: 50 }}
+  camera={{ position: [25, 25, 25], fov: 40 }}
   className="fixed top-0 left-0 w-full h-full"
   
 >
 <Scene />
 </Canvas>
     </div>
+        <About />
+        <Works />
+        </>
   )
 } 

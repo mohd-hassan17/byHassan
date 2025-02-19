@@ -276,25 +276,6 @@ text-container {
   animation-fill-mode: forwards; /* Ensure the element stays in its final state */
 }
 
-.animated-text:nth-child(1) { animation-delay: 0s; }
-.animated-text:nth-child(2) { animation-delay: 0.2s; }
-.animated-text:nth-child(3) { animation-delay: 0.4s; }
-.animated-text:nth-child(4) { animation-delay: 0.6s; }
-.animated-text:nth-child(5) { animation-delay: 0.8s; }
-.animated-text:nth-child(6) { animation-delay: 1.0s; }
-.animated-text:nth-child(7) { animation-delay: 1.2s; }
-.animated-text:nth-child(8) { animation-delay: 1.4s; }
-.animated-text:nth-child(9) { animation-delay: 1.6s; }
-.animated-text:nth-child(10) { animation-delay: 1.8s; }
-.animated-text:nth-child(11) { animation-delay: 2.0s; }
-.animated-text:nth-child(12) { animation-delay: 2.2s; }
-.animated-text:nth-child(13) { animation-delay: 2.4s; }
-.animated-text:nth-child(14) { animation-delay: 2.6s; }
-.animated-text:nth-child(15) { animation-delay: 2.8s; }
-.animated-text:nth-child(16) { animation-delay: 3.0s; }
-.animated-text:nth-child(17) { animation-delay: 3.2s; }
-.animated-text:nth-child(18) { animation-delay: 3.4s; }
-.animated-text:nth-child(19) { animation-delay: 3.6s; }
 
 @keyframes appear {
   0% { opacity: 0; }
@@ -303,43 +284,39 @@ text-container {
 
 /* cursor */
 
-#move{
-  /* height: 150px; */
-  /* background: linear-gradient(-90deg, #804dee 0%, rgba(111, 80, 177, 0) 100%); */
-   background: linear-gradient(-90deg, #804dee 0%, #804dee  100%);
-  display: flex;
-  padding: 1.5vw 0;
-  overflow: hidden;
+/* .gradient{
+  
+  background: rgb(81,111,219);
+  background: linear-gradient(90deg, rgba(81,111,219,1) 5%, rgba(79,88,166,1) 100%);
+} */
+
+/* faq */
+
+.faq-section {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
 }
-.marque h1{
-  color: white;
-  font-size: 70px;
-  font-weight: 500;
-  padding-left: 1.5vw;
-  gap: 50px;
+
+.faq {
+ 
+  border: 1px solid #4c7e99;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 20px;
+  cursor: pointer;
 }
-.marque img{
-  color: rgb(244, 240, 240);
-  height: 60px;
-  padding-right: 0.5vw;
-  gap: 25px;
+
+.faq.open .faq-answer {
+  display: block;
 }
- .img1{
-  color: white;
+
+.faq-question {
+  font-weight: bold;
 }
-.marque{
-  color: white;
-  /* background-color: bg-black-100; */
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  padding: 5px 0;
-  transform: translateX(-100%);
-}
-.marque a{
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: 25px;
+
+.faq-answer {
+  display: none;
+  padding-top: 10px;
 }

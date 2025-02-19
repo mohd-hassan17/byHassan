@@ -42,19 +42,19 @@ import {
   
   const services = [
     {
-      title: "Frontend Developer",
+      title: " Drag-and-Drop Support",
       icon: web,
     },
     {
-      title: "Three js ",
+      title: "AI-Powered Analysis",
       icon: mobile,
     },
     {
-      title: "Tailwind CSS",
+      title: "Automated Rechecks",
       icon: backend,
     },
     {
-      title: "GSAP",
+      title: "Secure File Reports",
       icon: creator,
     },
   ];
