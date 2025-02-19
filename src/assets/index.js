@@ -21,10 +21,7 @@ import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
 
-import meta from "./company/meta.png";
-import shopify from "./company/shopify.png";
-import starbucks from "./company/starbucks.png";
-import tesla from "./company/tesla.png";
+
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -36,15 +33,17 @@ import Linkedin from "./Linkedin.png";
 import favicon from "./favicon.png";
 import gsap from "./gsap.png";
 import cyber from "./cyber.png";
-import cyber1 from "./cyber1.png";
-import cyber3 from "./cyber3.png";
-import cyber4 from "./cyber3.png";
+
+import cyber4 from "./cyber4.png";
+import cyber5 from "./cyber5.png";
+
 
 export {
-  cyber3,
+  cyber5,
+ 
   cyber4,
   cyber,
-  cyber1,
+  
   gsap,
   favicon,
   Linkedin,
@@ -72,10 +71,8 @@ export {
   tailwind,
   typescript,
   threejs,
-  meta,
-  shopify,
-  starbucks,
-  tesla,
+ 
+  
   carrent,
   jobit,
   tripguide,

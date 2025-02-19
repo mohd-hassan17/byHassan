@@ -246,7 +246,20 @@
 }
 
 ::selection{
-  color: #e78bf3;
+  color: #666567;
+}
+
+.txt{
+  color: #d4d2d6;
+
+}
+.txt1{
+  color: #383739;
+  background-color:#dbd6de ;
+}
+.txt3{
+  color: #383739;
+  background-color:#dbd6de ;
 }
 /* ::-webkit-scrollbar {
   display: none; 

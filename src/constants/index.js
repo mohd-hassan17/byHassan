@@ -10,18 +10,10 @@ import {
     reactjs,
     redux,
     tailwind,
-    nodejs,
-    mongodb,
+    
     git,
     figma,
-    docker,
-    meta,
-    starbucks,
-    tesla,
-    shopify,
-    carrent,
-    jobit,
-    tripguide,
+   
     threejs,
     gsap,
     contact,
@@ -31,7 +23,7 @@ import {
   
   export const navLinks = [
     {
-      id: "about",
+      id: "/Service",
       title: "Services",
     },
     {

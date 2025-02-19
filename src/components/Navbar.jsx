@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
-import { cyber4,favicon, menu, close } from "../assets";
+import { cyber5,favicon, menu, close } from "../assets";
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { Link } from "react-router-dom";
 
 
 const Navbar = () => {
@@ -14,40 +15,31 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      if (scrollTop > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const scrollTop = window.scrollY;
+  //     if (scrollTop > 100) {
+  //       setScrolled(true);
+  //     } else {
+  //       setScrolled(false);
+  //     }
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   var tl = gsap.timeline()
   useGSAP(() => {
-    tl.from(".has , .has1 li",{
+    tl.from("nav p, nav li ",{
       y:-40,
-      duration:1,
-      delay:1,
-      opacity:0,
-      stagger:0.5
+      duration:0.8,
+    delay:0.5,
+    opacity:0,
+    // stagger:0.5
     })
   });
-
-  // useGSAP(() => {
-  //   gsap.to(".btn",{
-  //     y:-40,
-  //     duration:1,
-  //     delay:1,
-  //     opacity:0,
-  //   })
-  // });
 
  
 
@@ -65,33 +57,46 @@ const Navbar = () => {
           className='flex items-center gap-2'
           onClick={() => {
             setActive("");
-            window.scrollTo(0, 0);
+           
           }}
         >
-           <img src={cyber4} alt='logo' className='w-9 h-9  bg object-contain has' />
-          <p className='text-white text-[24px] font-semibold cursor-pointer flex has '>
-         
+           
+          <p className='txt text-[24px] font-semibold cursor-pointer flex  '>
+          <img src={cyber5} alt='logo' className='w-9 h-9  bg object-contain ' /> &nbsp;
             Take &nbsp;Control
           </p>
         </Link>
 
-        <ul className='list-none hidden sm:flex flex-row gap-10 has1'>
-          {navLinks.map((nav) => (
+        <ul className='list-none hidden sm:flex flex-row gap-10 '>
+          {/* {navLinks.map((nav) => (
             <li
               key={nav.id}
               className={`${
                 active === nav.title ? "text-white" : "text-secondary"
               } hover:text-white text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(nav.title)}
+             
             >
-              <a className="a" href={`#${nav.id}`}>{nav.title}</a>
-            </li>
-          ))}
-          <button className="bg-blue-600 text-white font-bold py-3 px-6 rounded-md hover:bg-blue-700 transition duration-300 btn ">
-  Login
-</button>
-        </ul>
+              
+              <a className="a" >{nav.title}</a>
 
+            </li>
+          ))} */}
+            
+            <li className='text-white hover:text-white text-[18px] font-medium mt-2 cursor-pointer'>     
+              <Link to='/Service' className="a" >Service</Link>
+            </li>
+            <li className='text-white hover:text-white text-[18px] font-medium mt-2 cursor-pointer'>     
+              <Link to='/Documentation' className="a" >Documentation</Link>
+            </li>
+
+          <li> <button className="txt3 font-bold py-3 px-6 rounded-md hover:bg-gray-400 transition duration-300  ">
+          Login
+          </button></li>
+          </ul>
+       
+      
+        
+       
         <div className='sm:hidden flex flex-1 justify-end items-center'>
           <img
             src={toggle ? close : menu}
@@ -117,7 +122,9 @@ const Navbar = () => {
                     setActive(nav.title);
                   }}
                 >
-                  <a className="a" href={`#${nav.id}`}>{nav.title}</a>
+                  {/* <a className="a" href={`#${nav.id}`}>{nav.title}</a> */}
+                  <a className="a" >{nav.title}</a>
+
                 </li>
               ))}
               
